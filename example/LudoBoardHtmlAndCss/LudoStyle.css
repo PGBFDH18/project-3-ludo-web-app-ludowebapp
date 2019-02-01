@@ -1,5 +1,5 @@
 html{
-    background-color: lightgray;
+    background-color: whitesmoke;
 }
 
 .currentPlayer{
@@ -70,7 +70,7 @@ html{
     position:absolute;
     left:360;
     top:360;
-    background-color: cyan;
+    background-color: rgb(199, 127, 163);
 }
 
 .field{
