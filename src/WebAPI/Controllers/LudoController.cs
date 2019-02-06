@@ -34,8 +34,29 @@ namespace WebAPI.Controllers
                 "</center></body></html>"
             };
         }
+
+        //public static object Create<T>(global::LudoWebApp.Controllers.HttpApiConfig config)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public static object Create<T>(global::LudoWebApp.Controllers.HttpApiConfig config)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public static object Create<T>(global::LudoWebApp.Controllers.HttpApiConfig config)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public static object Create<T>(global::LudoWebApp.Controllers.HttpApiConfig config)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
         //Set Cookie 
-        
+
         public ILudoModel context;
         public LudoController(ILudoModel _context)
         {

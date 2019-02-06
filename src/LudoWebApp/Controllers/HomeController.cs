@@ -1,15 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LudoWebApp.Models;
+using WebAPI.Controllers;
+using WebAPI.Models;
+using LudoGameEngine;
 
 namespace LudoWebApp.Controllers
 {
     public class HomeController : Controller
     {
+
+    //    public interface ILudoModels : ILudoGame
+    //    {
+
+    //        [HttpPost("/ludo/createnewgame")]
+    //        ITask<Person> AddPersonAsync([JsonContent]Person person);
+
+            
+    //    }
+
+
         public IActionResult Index()
         {
             return View();
@@ -21,10 +32,18 @@ namespace LudoWebApp.Controllers
 
             return View();
         }
+        
 
-        public IActionResult Contact()
+        //[HttpPost("newludogame")]
+        public IActionResult Ludo()
         {
-            ViewData["Message"] = "Your contact page.";
+            //var config = new 
+            //{
+            //    HttpHost = new Uri("https://localhost:44370/newludogame"),
+            //};
+
+            ////var client = HttpPostAttribute;
+            ////ViewData["Message"] = "Creating new Ludo Game.";
 
             return View();
         }
@@ -41,3 +60,4 @@ namespace LudoWebApp.Controllers
         }
     }
 }
+

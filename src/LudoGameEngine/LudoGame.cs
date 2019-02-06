@@ -12,6 +12,8 @@ namespace LudoGameEngine
         public int currentPlayerId = 0;
         public IDice _dice = null;
 
+        public Uri HttpHost { get; set; }
+
         public LudoGame()
         {
             _dice = new Dice();
