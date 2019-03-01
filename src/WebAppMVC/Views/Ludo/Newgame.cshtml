@@ -1,0 +1,58 @@
+﻿@model WebAppMVC.Models.CreateGameModel
+@{
+    ViewData["Title"] = "Newgame";
+    Layout = "_HomeLayout";
+}
+
+<head>
+    <title>New game</title>
+</head>
+<body>
+    <header >
+        <h1>Enter Gamers names!</h1>
+        <div class="masthead-content">
+            <div class="container">
+            </div>
+        </div>
+       
+    </header>
+
+    <div class="text-center">
+
+        <form asp-action="CreateGame" asp-controller="Ludo">
+            <div>
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x player1 Red"></i>
+                    <i class="fa fa-chess-pawn fa-stack-1x fa-inverse"></i>
+                </span>
+                <label asp-for="Player1Name">Player Red</label>
+                <input  asp-for="Player1Name" type="text" placeholder="Please enter your name" />
+            </div>
+            <div>
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x player2 Green"></i>
+                    <i class="fa fa-chess-pawn fa-stack-1x fa-inverse"></i>
+                </span>
+                <label asp-for="Player2Name">Player Green</label>
+                <input asp-for="Player2Name" type="text" placeholder="Please enter your name" />
+            </div>
+            <div>
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x player3 Blue"></i>
+                    <i class="fa fa-chess-pawn fa-stack-1x fa-inverse"></i>
+                </span>
+                <label asp-for="Player3Name">Player Blue</label>
+                <input  asp-for="Player3Name" type="text" placeholder="Please enter your name" />
+            </div>
+            <div>
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x player4 Yellow"></i>
+                    <i class="fa fa-chess-pawn fa-stack-1x fa-inverse"></i>
+                </span>
+                <label asp-for="Player4Name">Player Yellow</label>
+                <input  asp-for="Player4Name" type="text" placeholder="Please enter your name" />
+            </div>
+            <input type="submit" value="New Game" />
+        </form>
+    </div>
+</body>

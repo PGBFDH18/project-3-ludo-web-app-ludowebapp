@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Html;
+@using Microsoft.AspNetCore.HttpOverrides;
+@using Microsoft.AspNetCore.Mvc;
+
+@model WebAppMVC.Models.GameModel
+@{
+    ViewData["Title"] = "Game";
+    Layout = "_HomeLayout";
+
+}
+<html>
+<head>
+    <title>The Game Loung</title>
+</head>
+<body>
+    
+    <div >
+        @foreach (PlayerModel player in Model.players)
+        {
+            var playerName = player.Name;
+            var playerId = player.PlayerId;
+            var foo = "innerText" + playerId;
+            <div class="@foo">
+                <p><strong>Player: @playerName</strong></p>
+                @foreach (PieceModel piece in player.Pieces)
+                {
+                    var pieceId = piece.PieceId + 1;
+                    var piecePosition = piece.Position;
+                    <p>Piece: @pieceId | Position: @piecePosition</p>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="buttons-area">
+        <p>Now is @Model.players[Model.currentPlayerId].Name turn</p>
+        <form asp-action="rollDice">
+            <input value="Roll Dice" type="submit" />
+            @if (Model.diceValue != 0)
+            {
+                <p>Dice @Model.diceValue has given.</p>
+            }
+        </form>
+        @if (Model.diceValue != 0)
+        {
+            <form asp-action="movePiece">
+                <label>Which piece? </label>
+                <div>
+                    <input type="submit" asp-for="pieceId" value="1"/>
+                    <input type="submit" asp-for="pieceId" value="2"/>
+                    <input type="submit" asp-for="pieceId" value="3"/>
+                    <input type="submit" asp-for="pieceId" value="4"/>
+                </div>
+            </form>
+        }
+    </div>
+</body>
+</html>
+
+

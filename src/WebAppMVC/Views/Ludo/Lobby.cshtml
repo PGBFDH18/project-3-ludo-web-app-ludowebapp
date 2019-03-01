@@ -1,0 +1,40 @@
+﻿@model WebAppMVC.Models.PlayerModelContainer
+@{
+    ViewData["Title"] = "Lounge";
+    Layout = "_HomeLayout";
+}
+
+<head>
+    <title>Lounge</title>
+</head>
+<body>
+    
+
+    <div>
+        @if (ViewBag.errorMessage != null)
+        {
+            <p>@ViewBag.errorMessage</p>
+        }
+
+        @if (ViewBag.message != null)
+        {
+            <p>@ViewBag.message</p>
+        }
+        else
+        {
+            <h4>Game ID: @Model.gameId</h4>
+            <h2>Players</h2>
+            foreach (PlayerModel player in Model.Players)
+            {
+                <span class="@player.PlayerColor fa-stack fa-lg">
+                  <i > Red</i>
+                  <i >Green</i>
+                </span>
+                <label>@player.Name</label>
+            }
+            <form asp-action="StartGame" asp-controller="Ludo">
+                <button type="submit">Stat The Game</button>
+            </form>
+        }
+    </div>
+</body>
