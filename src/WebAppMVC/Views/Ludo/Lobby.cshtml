@@ -7,6 +7,37 @@
 <head>
     <title>Lounge</title>
 </head>
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    h2 {
+        color: grey;
+        text-align: left;
+        font-family: 'Lucida Console'; 
+    }
+    label {
+        color: grey;
+        text-align: left;
+        font-family: '';
+    }
+    span {
+        color: grey;
+        font-size: 24px; 
+        text-align: center;
+        font-family: Arial;
+    }
+    button{
+        background-color: #f44336;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+    }
+</style>
 <body>
     
 
@@ -22,13 +53,12 @@
         }
         else
         {
-            <h4>Game ID: @Model.gameId</h4>
             <h2>Players</h2>
             foreach (PlayerModel player in Model.Players)
             {
-                <span class="@player.PlayerColor fa-lg">
-                  <i > Red</i>
-                  <i >Green</i>
+                <span>
+                    <i> @player.PlayerColor</i>
+                  
                 </span>
                 <label>@player.Name</label>
             }
