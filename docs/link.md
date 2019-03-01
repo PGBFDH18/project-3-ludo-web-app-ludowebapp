@@ -1,1 +1,1 @@
-Link to your fia game should be placed here
+http://ludowebmvc.azurewebsites.net/
