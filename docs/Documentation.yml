@@ -1,0 +1,158 @@
+nfo:
+  version: "1.0.0"
+  title: LudoGameApI
+  server: http://ludoapp.azurewebsites.net/ 
+paths:
+  ludo/newludogame:
+    POST:
+      description: Creates a new Ludo game
+      responses:
+        '200':
+          description: OK, Returns a guid code for the new game
+          schema:
+            context: text/json
+            type: GUID
+  ludo/{id}/deletegame:
+    delete: 
+      description: Deletes an existing game
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: NotFound
+  ludo/{id}/players/addplayer:
+    post: 
+      description: Add new player
+      responses:
+        '200':
+          description: OK, Returns information for the new player
+          schema:
+            type: object
+            properties:
+              - name: ID
+                type: integer
+              - name: name
+                type: string
+              - name: colorId
+                type: integer
+        '400':
+          description: BadRequest, Fail player ID
+  ludo/{id}/players:
+      delete:
+        description: Removes a player
+      responses:
+         '200':
+              description: Ok, player with ID got removed
+         Schema: 
+            type: Object
+            properties: 
+              - Name: id
+                type: GUID
+              - name: ColorId
+                type: integer
+         '404':
+           description: website NotFound
+  ludo/getallgames:
+    get:
+       description: Gets all games that exists
+       responses:
+        '200':
+            description: Ok, returns all existing games
+  ludo/{id}/getgamedetails:
+    get:
+      description: Returns the game details of a specific game
+    responses: 
+        '200':
+            description: Ok, game returned with specific ID
+        Schema:
+          type: Object
+          properties:
+            - Name: id
+              type: GUID
+        '404':
+          description: Error, website not found
+  ludo/{id}/players/getplayers:
+    get:
+      description: Returns all players in a specific game
+      responses:  
+        '200':
+            description: Ok, all players returned from specific game
+        Schema:
+          type: Object
+          Properties:
+            - Name: id
+              type: GUID
+        '404':
+          description: Error, Server not found
+  ludo/{id}/changeplayer:
+    put:
+      description: Changes a players details
+      responses:
+        '200':
+            description: Ok, player details changed
+        Schema:
+          type: Object
+          Properties:
+            - Name: id
+              type: GUID
+        '404':
+          description: Error, server not found
+  ludo/{id}/startgame:
+    put:
+      description: Starts an existing game (true or false)
+      responses:
+        '200':
+            description: Ok, Game started
+        Schema:
+          type: Object
+          Properties:
+            - Name: id
+              type: GUID
+  ludo/{id}/throwdice:
+    get:
+      description: Rolls the dice
+      responses:
+        '200':
+            description: Ok, dice rolled
+        Schema:
+        type: Object
+        Properties:
+            - Name: id
+              type: GUID
+  ludo/{id}/movepiece:
+    put:
+      description: Moves a boardpiece
+      responses:
+        '200':
+            description:
+        Schema: 
+        type: Object
+        Properties:
+             - Name: id
+               type: GUID
+             - Name: PieceID
+               type: integer
+             - Name: NumberOfFields
+               type: integer
+  ludo/{id}/endgame:
+    put:
+      description: End the game (game status false)
+      responses:
+        '200':
+            description: 
+        Schema:
+        type: Object
+        Properties: 
+            - Name: Id
+              type: GUID
+  ludo/{id}/getwinner:
+    get:
+      description: Gets the final game winner
+      responses:
+        '200':
+            description: 
+        Schema:
+        type: Object
+        Properties:
+            - Name: Id
+              type: GUID
